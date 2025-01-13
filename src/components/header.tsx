@@ -1,14 +1,12 @@
-import useTheme from "../hooks/use-theme";
+import ThemeToggleButton from "./them-toggle-button";
 
 const Header = () => {
-  const { theme, toggleTheme } = useTheme();
+  console.log("Header rendered!");
 
   return (
     <header className="header">
       <h1>CatApp</h1>
-      <button onClick={toggleTheme}>
-        {theme === "light" ? "Dark Mode" : "Light Mode"}
-      </button>
+      <ThemeToggleButton /> {/* Using the new component here */}
     </header>
   );
 };

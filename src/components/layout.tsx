@@ -3,7 +3,7 @@ import useTheme from "../hooks/use-theme";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { theme } = useTheme();
 
-  return <div className={theme}>{children}</div>;
+  return <div className={`app-wrapper ${theme}`}>{children}</div>;
 };
 
 export default Layout;

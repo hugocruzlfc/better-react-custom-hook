@@ -6,7 +6,7 @@ const useTheme = () => {
   if (!context) {
     throw new Error("useTheme must be used within a ThemeProvider");
   }
-  const { theme, toggleTheme } = context;
+  const { theme, setTheme: toggleTheme } = context;
   return { theme, toggleTheme };
 };
 
