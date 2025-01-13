@@ -28,6 +28,55 @@ export const CatProvider = ({ children }: { children: ReactNode }) => {
       image: maineCoonImage,
       country: "USA",
     },
+    {
+      id: uuidv4(),
+      breed: "Russian Blue",
+      image: russianBlueImage,
+      country: "Russia",
+    },
+    {
+      id: uuidv4(),
+      breed: "Persian",
+      image: persianImage,
+      country: "Iran",
+    },
+    {
+      id: uuidv4(),
+      breed: "Maine Coon",
+      image: maineCoonImage,
+      country: "USA",
+    },
+    {
+      id: uuidv4(),
+      breed: "Sphynx",
+      image: sphynxImage,
+      country: "Canada",
+    },
+    {
+      id: uuidv4(),
+      breed: "Bengal",
+      image: bengalImage,
+      country: "USA",
+    },
+
+    {
+      id: uuidv4(),
+      breed: "British Shorthair",
+      image: britishShorthairImage,
+      country: "United Kingdom",
+    },
+    {
+      id: uuidv4(),
+      breed: "Ragdoll",
+      image: ragdollImage,
+      country: "USA",
+    },
+    {
+      id: uuidv4(),
+      breed: "Abyssinian",
+      image: abyssinianImage,
+      country: "Ethiopia",
+    },
   ] as Cat[];
 
   const [cats, setCats] = useState<Cat[]>(() => {

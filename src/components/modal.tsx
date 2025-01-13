@@ -1,37 +1,24 @@
-import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-import useCatList from "../hooks/use-cat-list";
+import { ChangeEvent, Dispatch, FormEvent, SetStateAction } from "react";
+import { Cat } from "../types";
 
 const Modal = ({
   isOpen,
   onClose,
+  form,
+  setForm,
+  handleImageChange,
+  handleSubmit,
 }: {
   isOpen: boolean;
   onClose: () => void;
+  form: Omit<Cat, "id">;
+  setForm: Dispatch<SetStateAction<Omit<Cat, "id">>>;
+  handleImageChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }) => {
-  const { addCat } = useCatList();
-  const [form, setForm] = useState({ breed: "", image: "", country: "" });
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files && e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        if (typeof reader.result === "string") {
-          setForm({ ...form, image: reader.result });
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    addCat({ ...form, id: uuidv4() });
-    onClose();
-  };
-
   if (!isOpen) return null;
+
+  console.log("Modal rendered!");
 
   return (
     <div className="modal">
