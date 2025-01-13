@@ -1,10 +1,14 @@
+import React from "react";
+
 interface CatCardProps {
   breed: string;
   image: string;
   country: string;
 }
 
-const CatCard = ({ breed, image, country }: CatCardProps) => {
+const CatCard = React.memo(({ breed, image, country }: CatCardProps) => {
+  console.log("CatCard rendered!");
+
   return (
     <div className="cat-card">
       <img
@@ -15,6 +19,6 @@ const CatCard = ({ breed, image, country }: CatCardProps) => {
       <p>{country}</p>
     </div>
   );
-};
+});
 
 export default CatCard;
